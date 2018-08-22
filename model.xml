@@ -1,0 +1,133 @@
+<?xml version="1.0" standalone="no"?>
+<adag  name="model" class="ptolemy.actor.TypedCompositeActor" Buget="1120" DeadLine="130">
+    <node name="0001" class="ptolemy.actor.lib.Const">
+        <property age="width1" id="ptolemy.data.expr.Parameter" value="1" size="18000">
+        </property>
+    </node>
+    <node name="0002" class="ptolemy.actor.lib.Const">
+        <property age="width2" id="ptolemy.data.expr.Parameter" value="1" size="17500">
+        </property>
+    </node>
+    <node name="0003" class="ptolemy.actor.lib.AddSubtract">
+        <property age="width3" id="ptolemy.data.expr.Parameter" value="1" size="20000">
+        </property>
+    </node>
+    <node name="0004" class="ptolemy.actor.lib.gui.MonitorValue">
+        <property age="width4" id="ptolemy.data.expr.Parameter" value="1" size="14600">
+        </property>
+    </node>
+	<node name="0005" class="ptolemy.actor.lib.gui.MonitorValue">
+        <property age="width4" id="ptolemy.data.expr.Parameter" value="1" size="18400">
+        </property>
+    </node>
+    <node name="0006" class="ptolemy.actor.lib.gui.MonitorValue">
+        <property age="width4" id="ptolemy.data.expr.Parameter" value="1" size="11600">
+        </property>
+    </node>
+    <node name="0007" class="ptolemy.actor.lib.gui.MonitorValue">
+        <property age="width4" id="ptolemy.data.expr.Parameter" value="1" size="15800">
+        </property>
+    </node>
+    <node name="0008" class="ptolemy.actor.lib.gui.MonitorValue">
+        <property age="width4" id="ptolemy.data.expr.Parameter" value="1" size="19400">
+        </property>
+    </node>
+    <node name="0009" class="ptolemy.actor.lib.gui.MonitorValue">
+        <property age="width4" id="ptolemy.data.expr.Parameter" value="1" size="14400">
+        </property>
+    </node>
+    <node name="0010" class="ptolemy.actor.lib.gui.MonitorValue">
+        <property age="width4" id="ptolemy.data.expr.Parameter" value="1" size="16000">
+        </property>
+    </node>	
+    <relation name="relation" class="ptolemy.actor.TypedIORelation">
+        <property age="width5" id="ptolemy.data.expr.Parameter" value="1" size="18000">
+        </property>
+    </relation>
+    <relation name="relation2" class="ptolemy.actor.TypedIORelation">
+        <property age="width6" id="ptolemy.data.expr.Parameter" value="1" size="12000">
+        </property>
+    </relation>
+    <relation name="relation3" class="ptolemy.actor.TypedIORelation">
+        <property age="width7" id="ptolemy.data.expr.Parameter" value="1" size="9000">
+        </property>
+    </relation>
+    <relation name="relation4" class="ptolemy.actor.TypedIORelation">
+        <property age="width5" id="ptolemy.data.expr.Parameter" value="1" size="11000">
+        </property>
+    </relation>
+    <relation name="relation5" class="ptolemy.actor.TypedIORelation">
+        <property age="width5" id="ptolemy.data.expr.Parameter" value="1" size="14000">
+        </property>
+    </relation>
+    <relation name="relation6" class="ptolemy.actor.TypedIORelation">
+        <property age="width5" id="ptolemy.data.expr.Parameter" value="1" size="19000">
+        </property>
+    </relation>
+    <relation name="relation7" class="ptolemy.actor.TypedIORelation">
+        <property age="width5" id="ptolemy.data.expr.Parameter" value="1" size="16000">
+        </property>
+    </relation>
+    <relation name="relation8" class="ptolemy.actor.TypedIORelation">
+        <property age="width5" id="ptolemy.data.expr.Parameter" value="1" size="23000">
+        </property>
+    </relation>
+    <relation name="relation9" class="ptolemy.actor.TypedIORelation">
+        <property age="width5" id="ptolemy.data.expr.Parameter" value="1" size="27000">
+        </property>
+    </relation>
+    <relation name="relation10" class="ptolemy.actor.TypedIORelation">
+        <property age="width5" id="ptolemy.data.expr.Parameter" value="1" size="28000">
+        </property>
+    </relation>
+    <relation name="relation11" class="ptolemy.actor.TypedIORelation">
+        <property age="width5" id="ptolemy.data.expr.Parameter" value="1" size="13000">
+        </property>
+    </relation>
+    <relation name="relation12" class="ptolemy.actor.TypedIORelation">
+        <property age="width5" id="ptolemy.data.expr.Parameter" value="1" size="15000">
+        </property>
+    </relation>
+    <relation name="relation13" class="ptolemy.actor.TypedIORelation">
+        <property age="width5" id="ptolemy.data.expr.Parameter" value="1" size="17000">
+        </property>
+    </relation>
+    <relation name="relation14" class="ptolemy.actor.TypedIORelation">
+        <property age="width5" id="ptolemy.data.expr.Parameter" value="1" size="11000">
+        </property>
+    </relation>
+    <relation name="relation15" class="ptolemy.actor.TypedIORelation">
+        <property age="width5" id="ptolemy.data.expr.Parameter" value="1" size="13000">
+        </property>
+    </relation>	
+    <link port="0001" relation="relation"/>
+	<link port="0002" relation="relation"/>
+    <link port="0001" relation="relation2"/>
+	<link port="0003" relation="relation2"/>
+    <link port="0001" relation="relation3"/>
+    <link port="0004" relation="relation3"/>
+    <link port="0001" relation="relation4"/>
+	<link port="0005" relation="relation4"/>
+	<link port="0001" relation="relation5"/>
+	<link port="0006" relation="relation5"/>
+	<link port="0001" relation="relation6"/>
+	<link port="0008" relation="relation6"/>
+	<link port="0002" relation="relation7"/>
+	<link port="0009" relation="relation7"/>
+	<link port="0002" relation="relation8"/>
+	<link port="0007" relation="relation8"/>
+	<link port="0003" relation="relation9"/>
+	<link port="0008" relation="relation9"/>
+	<link port="0004" relation="relation10"/>
+	<link port="0009" relation="relation10"/>
+	<link port="0005" relation="relation11"/>
+	<link port="0009" relation="relation11"/>
+	<link port="0006" relation="relation12"/>
+	<link port="0008" relation="relation12"/>
+	<link port="0007" relation="relation13"/>
+	<link port="0010" relation="relation13"/>
+	<link port="0008" relation="relation14"/>
+	<link port="0010" relation="relation14"/>
+	<link port="0009" relation="relation15"/>
+	<link port="0010" relation="relation15"/>
+</adag>
