@@ -73,7 +73,7 @@ public class xmlParser {
     	List<Element> linkList = new ArrayList<Element>();
     	
 
-		//// 枚举根节点下所有子节点，三种标签node,relation,link
+		// 枚举根节点下所有子节点，三种标签node,relation,link
 		for (Iterator ie = root.elementIterator(); ie.hasNext();) {
 			
             Element element = (Element) ie.next();
@@ -93,22 +93,9 @@ public class xmlParser {
             	System.out.println("标签不满足条件");
             }
             //System.out.println(element.getName());
-            
-            // 枚举属性
-            for (Iterator ia = element.attributeIterator(); ia.hasNext();) {
-                attribute = (Attribute) ia.next();      
-            }
 
-            for (Iterator ieson = element.elementIterator(); ieson.hasNext();) {
-                Element elementSon = (Element) ieson.next();
-                if (elementSon.getName().equals("property")){
-                	for (Iterator ias = elementSon.attributeIterator(); ias.hasNext();) {
-                    attribute = (Attribute) ias.next();                                     
-                    }
-                }else{
-                	System.out.println("标签不满足条件");
-                }  
-             }             
+  
+                          
          }
 		
     	//将三个列表存入map中

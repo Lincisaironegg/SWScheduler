@@ -2,7 +2,6 @@ package SchedulerStrategy;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -11,6 +10,8 @@ import DAGParser.Edge;
 import DAGParser.Task;
 import Server.Cpu;
 import Server.Server;
+import util.Dfs;
+import util.task_node;
 
 public class BHEFT {
 	@SuppressWarnings({ "unchecked", "unused" })
@@ -18,7 +19,8 @@ public class BHEFT {
 		// 初始化一个Map用于接收调度结果
 		Map<Map<Integer, Integer>, Integer> sche = new HashMap<Map<Integer, Integer>, Integer>();
 		// 调用Server类，获取cpu相关信息（bw带宽（单位MBps），serv_num即cpu数量，以及存放cpu的list
-		Server Serv = new Server();
+		File f = new File("C:\\Users\\bin\\Desktop\\info_vn000182.xml");
+		Server Serv = Server.serverReader(f);
 		int Bw = Serv.getBw();
 		int nS = Serv.getSer_num();
 		ArrayList<Cpu> listc = Serv.getListc();
@@ -97,22 +99,14 @@ public class BHEFT {
 	int spend = 0;
 
 	private Map<Map<Integer, Integer>, Integer> run() {
+		int i,j;
 		// 初始化存储task-cpu的map
 		Map<Integer, Integer> result = new HashMap<Integer, Integer>();
 		// 初始化map存储result-time对
 		Map<Map<Integer, Integer>, Integer> sche = new HashMap<Map<Integer, Integer>, Integer>();
-		// 初始化arr[]数组
-		arr = new task_node[num_tasks];
-		// 遍历arr数组并初始化task_node
-		int i, j;
-		for (i = 0; i < num_tasks; i++)
-			arr[i] = new task_node(i + 1);
-		// 遍历任务结点，并调用dfs方法
-		for (i = 0; i < num_tasks; i++)
-			if (arr[i].dlp == 0)
-				dfs(arr[i].id);
-		// 使用重写的排序规则进行排序
-		Arrays.sort(arr);
+		//调用DFS类对arr进行排序
+		Dfs dfs = new Dfs(num_tasks,num_servers,cost,adj);
+		arr = dfs.getDfs();
 		// 动态存储某任务最早能使用的时间
 		int curr_state[] = new int[num_servers + 1];
 		// 动态存储某任务的实际完成时间AFS
@@ -142,7 +136,7 @@ public class BHEFT {
 		double AF;
 		// 开始将任务与服务一一对应
 		for (i = 0; i < num_tasks; i++) {
-			int id = arr[i].id, min = Integer.MAX_VALUE, min_j = -1, max = 0;
+			int id = arr[i].getId(), min = Integer.MAX_VALUE, min_j = -1, max = 0;
 			SAB = Buget - spend - spend_pre;
 			if (SAB >= 0) {
 				AF = avg / spend_pre;
@@ -174,7 +168,6 @@ public class BHEFT {
 					if (Math.max(curr_state[c.getId()], max) + cost[id][c.getId()] < min) {
 						min = Math.max(curr_state[c.getId()], max) + cost[id][c.getId()];
 						min_j = c.getId();
-
 					}
 				}
 			} else {
@@ -214,53 +207,7 @@ public class BHEFT {
 		return sche;
 	}
 
-	private float dfs(int node_id) {
-		if (arr[node_id - 1].dlp != 0)
-			return arr[node_id - 1].dlp;
-		// 出口结点的dlp为每个服务上花费的平均值
-		if (adj[node_id].size() == 0) {
-			float avg = 0;
-			for (int j = 1; j <= num_servers; j++) {
+	
 
-				avg += cost[node_id][j];
-			}
-			return arr[node_id - 1].dlp = avg / num_servers;
-		}
-
-		int i, sz = adj[node_id].size();
-		float max = -1;
-		// 遍历节点的每个边，计算出所有子节点DLP与通向该节点路径cost之和的最大值
-		for (i = 0; i < sz; i++) {
-			Edge e = adj[node_id].get(i);
-			max = Math.max(dfs(e.getTo()) + e.getSize(), max);
-		}
-		arr[node_id - 1].dlp = max;
-		float avg = 0;
-		// 计算该节点在每个服务器上的平均cost
-		for (int j = 1; j <= num_servers; j++)
-			avg += cost[node_id][j];
-
-		return arr[node_id - 1].dlp += (avg / num_servers);
-	}
-
-	private class task_node implements Comparable<task_node> {
-		int id;
-		float dlp;
-
-		task_node(int x) {
-			id = x;
-			dlp = 0;
-		}
-
-		@Override
-		public int compareTo(task_node arg) {
-
-			if (this.dlp < arg.dlp)
-				return 1;
-			if (this.dlp > arg.dlp)
-				return -1;
-
-			return 0;
-		}
-	}
+	
 }

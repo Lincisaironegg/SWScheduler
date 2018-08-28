@@ -1,6 +1,8 @@
 package Server;
 
+import java.io.File;
 import java.util.ArrayList;
+
 
 /**
  * server类 bw:、带宽，单位MBps serv_num：cpu数量 listc:cpu集合
@@ -56,6 +58,16 @@ public class Server {
 	@Override
 	public String toString() {
 		return "Server [bw=" + bw + ", listc=" + listc + "]";
+	}
+	public static Server serverReader(File filename) {
+		ServerParser sp = new ServerParser(filename);
+		int b = sp.getBw();
+		int n = sp.getCpuNum();
+		ArrayList<Cpu> c = new ArrayList<Cpu>();
+		c = sp.getCpuList();
+		Server s = new Server(b,n,c);
+		return s;
+		
 	}
 
 }
