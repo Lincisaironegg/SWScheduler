@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<node id="vn000182">
+  <CPU sys="1.25" usr="18.54" iowait="0.02" idle="80.17">
+    <cgsp core="0" sys="1.27" usr="20.54" iowait="0.0" idle="78.08" mips="1000"/>
+    <cgsp core="1" sys="1.45" usr="18.34" iowait="0.0" idle="80.19" mips="1200"/>
+    <cgsp core="2" sys="1.29" usr="17.47" iowait="0.0" idle="81.22" mips="1400"/>
+    <cgsp core="3" sys="0.98" usr="17.79" iowait="0.0" idle="81.21" mips="900"/>
+  </CPU>
+  <Memory id="182" Total="2038472" Free="344272" Cached="1405248">
+    <cgsp cg="0" UserPages_Conti_Used="0"/>
+    <cgsp cg="1" UserPages_Conti_Used="0"/>
+    <cgsp cg="2" UserPages_Conti_Used="0"/>
+    <cgsp cg="3" UserPages_Conti_Used="0"/>
+  </Memory>
+  <Network rxbyte="217464960" rxpkt="3513034" txbyte="163972521" txpkt="699074" bw="1000"/>
+</node>
